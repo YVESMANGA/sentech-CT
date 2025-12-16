@@ -12,9 +12,9 @@ interface Competence {
 
 // Données adaptées pour une entreprise de services informatiques
 const competences: Competence[] = [
-  { label: "Cloud & Virtualisation", pourcentage: 92 },
+  { label: "Maintenance", pourcentage: 92 },
   { label: "Développement Logiciel", pourcentage: 85 },
-  { label: "Cybersécurité & Audit", pourcentage: 78 },
+  { label: "Installation Systeme Reseaux ", pourcentage: 95 },
 ];
 
 // Chemin de l'image (à remplacer par l'importation réelle de votre image)

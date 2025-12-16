@@ -27,12 +27,7 @@ const statistiques: Statistique[] = [
     valeur: "1.5K", // Changé de 15K à 1.5K pour plus de réalisme PME/IT
     libelle: "Clients Actifs",
   },
-  {
-    id: 3,
-    icone: ShieldCheck, // Icône Bouclier (Certifications Obtenues)
-    valeur: "20",
-    libelle: "Certifications IT",
-  },
+
   {
     id: 4,
     icone: Smile, // Icône Sourire (Satisfaction Client)
@@ -70,7 +65,7 @@ const StatsSection: React.FC = () => {
 
       <div className="container mx-auto relative z-10">
         {/* Grille des statistiques à 4 colonnes */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {statistiques.map((stat) => (
             <div
               key={stat.id}
@@ -120,7 +115,7 @@ const StatsSection: React.FC = () => {
         {/* Lignes de séparation verticales entre les colonnes (plus discrètes) */}
         <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-full hidden md:flex justify-around -z-10">
           <div className="absolute inset-y-0 left-[25%] border-l border-white/30"></div>
-          <div className="absolute inset-y-0 left-[50%] border-l border-white/30"></div>
+
           <div className="absolute inset-y-0 left-[75%] border-l border-white/30"></div>
         </div>
       </div>

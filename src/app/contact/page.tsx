@@ -1,23 +1,71 @@
 "use client";
 import React from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, MessageSquare } from "lucide-react";
 
 // Couleurs (utilisées directement)
 const COULEUR_PRINCIPALE = "#9ad1bc"; // Vert d'eau/Menthe
+const COULEUR_FOND_PALE = "#f7fafc"; // Gris très clair pour contraster le fond principal
+
+// ----------------------------------------------------------------------
+// 1. Section d'Introduction (Héro de la page Contact)
+// ----------------------------------------------------------------------
+
+const ContactHero: React.FC = () => (
+  <div className="bg-gray-900 text-white py-20 md:py-28 px-4 text-center">
+    <div className="container mx-auto">
+      <MessageSquare
+        className="w-12 h-12 mx-auto mb-4"
+        style={{ color: COULEUR_PRINCIPALE }}
+      />
+      <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
+        Discutons de Votre Projet
+      </h1>
+      <p className="text-gray-300 text-xl max-w-3xl mx-auto">
+        Nous sommes prêts à écouter vos défis et à concevoir ensemble des
+        solutions numériques qui propulseront votre entreprise.
+      </p>
+    </div>
+  </div>
+);
+
+// ----------------------------------------------------------------------
+// 2. Section de Carte (Simulée)
+// ----------------------------------------------------------------------
+
+const MapSection: React.FC = () => (
+  <section className={`w-full bg-[${COULEUR_FOND_PALE}] py-16 md:py-24 px-4`}>
+    <div className="container mx-auto">
+      <h3 className="text-3xl font-bold text-center mb-8 text-black">
+        Retrouvez-nous à Dakar
+      </h3>
+      <div className="h-96 w-full bg-gray-300 rounded-lg overflow-hidden shadow-xl flex items-center justify-center text-gray-700">
+        {/* Simulation de l'intégration d'une carte (ex: Google Maps) */}
+        <p className="text-xl font-semibold">
+          [ESPACE RÉSERVÉ POUR CARTE INTERACTIVE (MAP)]
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
+// ----------------------------------------------------------------------
+// 3. Composant de la Section Contact (Votre code légèrement adapté)
+// ----------------------------------------------------------------------
 
 /**
- * Composant de la Section Contact
+ * Composant de la Section Contact (le cœur de la page)
  */
-const ContactSection: React.FC = () => {
+const ContactFormSection: React.FC = () => {
   return (
     // Fond de la section : Couleur principale
     <section
-      className={`w-full bg-[${COULEUR_PRINCIPALE}] text-black py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden`}
+      className={`w-full text-black py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden`}
+      style={{ backgroundColor: COULEUR_PRINCIPALE }}
     >
       <div className="container mx-auto relative z-10">
-        {/* Grand titre en surbrillance */}
+        {/* Titre (Centré, mais peut être retiré car le Hero est là) */}
         <h2 className="text-5xl md:text-7xl font-extrabold mb-12 text-center text-black">
-          Contact
+          Prise de Contact
         </h2>
 
         {/* Conteneur principal: Infos (Blanc) + Formulaire (Couleur Principale) */}
@@ -28,7 +76,7 @@ const ContactSection: React.FC = () => {
             <div>
               <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-black">
                 Démarrons notre{" "}
-                <span className={`text-[${COULEUR_PRINCIPALE}]`}>
+                <span style={{ color: COULEUR_PRINCIPALE }}>
                   Collaboration !
                 </span>
               </h2>
@@ -39,7 +87,8 @@ const ContactSection: React.FC = () => {
               {/* Adresse */}
               <div className="flex items-start space-x-4">
                 <MapPin
-                  className={`w-6 h-6 text-[${COULEUR_PRINCIPALE}] flex-shrink-0 mt-1`}
+                  className={`w-6 h-6 flex-shrink-0 mt-1`}
+                  style={{ color: COULEUR_PRINCIPALE }}
                 />
                 <div>
                   <p className="text-lg font-bold text-black">
@@ -53,7 +102,8 @@ const ContactSection: React.FC = () => {
               {/* Numéro de Téléphone */}
               <div className="flex items-start space-x-4">
                 <Phone
-                  className={`w-6 h-6 text-[${COULEUR_PRINCIPALE}] flex-shrink-0 mt-1`}
+                  className={`w-6 h-6 flex-shrink-0 mt-1`}
+                  style={{ color: COULEUR_PRINCIPALE }}
                 />
                 <div>
                   <p className="text-lg font-bold text-black">
@@ -66,7 +116,8 @@ const ContactSection: React.FC = () => {
               {/* Adresse E-mail */}
               <div className="flex items-start space-x-4">
                 <Mail
-                  className={`w-6 h-6 text-[${COULEUR_PRINCIPALE}] flex-shrink-0 mt-1`}
+                  className={`w-6 h-6 flex-shrink-0 mt-1`}
+                  style={{ color: COULEUR_PRINCIPALE }}
                 />
                 <div>
                   <p className="text-lg font-bold text-black">
@@ -78,23 +129,24 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Colonne Droite: Formulaire de Contact (Sur fond couleur principale) */}
-          <div className={`bg-[${COULEUR_PRINCIPALE}] p-8 md:p-12`}>
+          {/* Colonne Droite: Formulaire de Contact */}
+          <div
+            className={`p-8 md:p-12`}
+            style={{ backgroundColor: COULEUR_PRINCIPALE }}
+          >
             <h3 className="text-2xl font-bold mb-2 text-black">
-              Contactez-nous
+              Envoyez-nous un Message
             </h3>
             <p className="text-white/90 mb-8">
-              Nous travaillons avec des leaders ambitieux qui façonnent
-              l'avenir, et non ceux qui le subissent.
+              Nous répondons généralement sous 24h ouvrées.
             </p>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               {/* Champ Nom */}
               <div className="relative">
                 <input
                   type="text"
                   placeholder="Votre Nom..."
-                  // Fond transparent (simulé par le fond de la div), bordure noire
                   className={`w-full bg-white/10 text-black p-4 border-b-2 border-black focus:border-black focus:outline-none transition-colors placeholder:text-black/60`}
                   required
                 />
@@ -148,4 +200,22 @@ const ContactSection: React.FC = () => {
   );
 };
 
-export default ContactSection;
+// ----------------------------------------------------------------------
+// 4. Page Contact Complète (Export par défaut)
+// ----------------------------------------------------------------------
+
+/**
+ * La Page Contact complète
+ */
+const ContactPage: React.FC = () => {
+  return (
+    <div className="Contact-Page">
+      <ContactHero />
+      <ContactFormSection />
+
+      {/* Ici, vous pouvez ajouter le Footer */}
+    </div>
+  );
+};
+
+export default ContactPage;

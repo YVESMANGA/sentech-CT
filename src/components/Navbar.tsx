@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 // Importation des icônes
 import { Menu, X, Search, ShoppingCart, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 /**
  * Interface pour les éléments de navigation
@@ -18,7 +19,6 @@ const navItems: NavItem[] = [
   { label: "Acceuil", href: "/" },
   { label: "A propos", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Equipes", href: "/team" },
 ];
 
 /**
@@ -39,14 +39,16 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-50 w-full bg-[#9ad1bc] shadow-lg">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* 1. Logo */}
-        <div className="flex items-center space-x-2 text-white text-2xl font-bold">
-          <img
-            src="logo.png" // Chemin d'exemple à modifier
-            alt="invite Logo"
-            className="w-22 h-22 object-contain" // w-6 h-6 pour une taille similaire au SVG précédent
-          />
-          <span className="text-black">SenTech</span>
-        </div>
+        <Link href="/">
+          <div className="flex items-center space-x-2 cursor-pointer">
+            <img
+              src="logo.png" // Chemin d'exemple à modifier
+              alt="SenTech Logo"
+              className="w-22 h-22 object-contain"
+            />
+            <span className="text-black text-2xl font-bold">SenTech</span>
+          </div>
+        </Link>
 
         {/* 2. Menu de Navigation (Desktop) */}
         <div className="hidden lg:flex items-center space-x-8">

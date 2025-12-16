@@ -145,8 +145,7 @@ const Footer: React.FC = () => {
               >
                 Heures d'Ouverture :
               </p>
-              <p className="text-gray-400 text-sm">Lun - Sam : 8h00 - 17h00,</p>
-              <p className="text-gray-400 text-sm">Dimanche : FERMÉ</p>
+              <p className="text-gray-400 text-sm">Tous les jours : 24h/24</p>
             </div>
           </div>
         </div>

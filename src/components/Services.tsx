@@ -32,7 +32,7 @@ const services: CarteServiceData[] = [
   {
     id: 2,
     icone: Cloud, // Cloud / Infrastructure
-    titre: "Gestion Cloud & Infrastructure",
+    titre: "Gestion Infrastructure Reseaux",
     description:
       "Migration, optimisation et maintenance de vos systèmes sur les principales plateformes Cloud (AWS, Azure, GCP).",
     cheminImageCarte:
@@ -41,7 +41,7 @@ const services: CarteServiceData[] = [
   {
     id: 3,
     icone: Shield, // Cybersécurité
-    titre: "Cybersécurité & Conformité",
+    titre: "Maintence Infrastructures reseaux",
     description:
       "Audits de sécurité, tests d'intrusion et mise en œuvre de politiques de protection des données pour une résilience maximale.",
     cheminImageCarte:
